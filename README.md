@@ -32,10 +32,21 @@ Pandora项目还提供了两个免费的Pool Token:
 ## OpenAIAuth
 如果，你在使用Pandora提供的Pool Token还有隐私和安全的顾虑，也可以同时使用[OpenAIAuth](https://github.com/acheong08/OpenAIAuth)和`pandora-chatgpt`的python函数包来产生和定时更新专属自己Access token。
 
-Pandora项目其实也独立提供了[这种服务](https://gist.github.com/pengzhile/448bfcfd548b3ae4e665a84cc86c4694)。但是我实操后，还是觉得结合OpenAIAuth更好使一些，并把修改后的代码放进[get_freeai_api.py](https://github.com/elphen-wang/FreeAI/blob/main/get_freeai_api.py)文件。
+Pandora项目其实也独立提供了[这种服务](https://gist.github.com/pengzhile/448bfcfd548b3ae4e665a84cc86c4694)。但是我实操后，还是觉得结合OpenAIAuth更好使一些，并把修改后的代码放进[get_freeai_api.py](https://github.com/elphen-wang/FreeAI/blob/main/get_freeai_api.py)文件，生成的'share_tokens.txt'是Pool Token（如果有二个及以上的账户密码的话）和Share Token并在的。
 
 ## gpt_academic
 本人之前搭建专属自己的OpenAI API反向代理的教程[ChatGPT Wallfree](https://github.com/elphen-wang/chatgpt_wallfree)只实现了gpt_academic免科学上网功能，但仍需使用OpenAI原生的API key。这里还是以它为例，本次直接不用开发者自己搭建反向代理服务和OpenAI原生的API key，可以为一般的科研组省下一笔的不易报销的经费支出。
 
-开发者用本项目中
+开发者可使用本项目中[gpt_academic](https://github.com/elphen-wang/FreeAI/tree/main/gpt_academic)文件夹中文件替代官方的文件，也可在此基础上加入自己的设定（如gpt_academic账户密码等）。如此之后，安装官方的调试运行和部署指引，gpt_academic就可以不用科学上网又能免费使用gpt-3.5啦！
+
+`tips：由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改。不然，用户的配置可能在某调试情况下不生效，这可能是gpt_academic的bug。`
+
+## 后记
++ 因为，Pandora目前本质上是将OpenAI原生的网页服务还原出来，所以目前还不能免费使用诸如ChatGPT-4等付费内容。不过，这将是本人和一众致力于使AI技术服务更广大群众的开发者今后努力的方向。
++ 之前ChatGPT Wallfree教程中提及ZeroTier的内网穿透技术，实测不如[Frp](https://github.com/fatedier/frp)更适合中国宝宝的体质：更稳定、速度更快且第三方无需客户端。
+
+## Star历史
+
+![Star History Chart](https://api.star-history.com/svg?repos=elphen-wang/FreeAI&type=Date)
+
 
