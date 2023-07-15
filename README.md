@@ -49,6 +49,10 @@ Pandora项目其实也独立提供了[这种服务](https://gist.github.com/peng
 + 因为，Pandora目前本质上是将OpenAI原生的网页服务还原出来，所以目前还不能免费使用诸如ChatGPT-4等付费服务。不过，这将是本人和一众致力于使AI技术服务更广大群众的开发者今后努力的方向。
 + 之前ChatGPT Wallfree教程中提及ZeroTier的内网穿透技术，实测不如[Frp](https://github.com/fatedier/frp)更适合中国科研宝宝的体质：更稳定、速度更快且第三方无需客户端。
 
+## To-do List
++ [ ] 完善gpt_academic的arxiv翻译功能，因为我是一个科研民工...
++ [ ] 集成new bing的gpt4服务...
+
 ## Star历史
 
 ![Star History Chart](https://api.star-history.com/svg?repos=elphen-wang/FreeAI&type=Date)
