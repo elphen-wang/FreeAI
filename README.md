@@ -1,6 +1,6 @@
 
 
-# <img src="https://junwang.fun/ai/assets/img/freeai_brand_logo_3.png" alt="图片描述" style="width: 120px;height: auto;"> | FreeAI
+# <img src="https://elphen.site/ai/assets/img/freeai_brand_logo_3.png" alt="图片描述" style="width: 120px;height: auto;"> | FreeAI
 OpenAI should not be a closed AI. 
 
 你是否还在为OpenAI需要科学上网在犯愁？
