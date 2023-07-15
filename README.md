@@ -39,6 +39,8 @@ Pandora项目其实也独立提供了[这种服务](https://gist.github.com/peng
 
 开发者可使用本项目中[gpt_academic](https://github.com/elphen-wang/FreeAI/tree/main/gpt_academic)文件夹中文件替代官方的文件（`主要是修改对toolbox.py和和config_private.py对access token的识别和获取`），也可在此基础上加入自己的设定（如gpt_academic账户密码等）。如此之后，安装官方的调试运行和部署指引，gpt_academic就可以不用科学上网又能免费使用gpt-3.5啦！
 
+在使用自己的账户的access token的场景中，需要用户自己设定定时执行get_freeai_api.py的功能，如每天凌晨四点执行一次。这样可以克服OpenAI cookie只有14天生命周期引入的频繁手动更新access token的问题。
+
 `tips：由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改。不然，用户的配置可能在某调试情况下不生效，这可能是gpt_academic的bug。`
 
 ## 后记
