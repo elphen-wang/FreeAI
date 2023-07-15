@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate</title>
+    <br/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Translation based on the FreeAI</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <label for="sourceLanguage">Source Language:</label>
+            <select class="form-control" id="sourceLanguage">
+                <option value="en">English/英文</option>
+                <option value="Chinese">Chinese/中文</option>
+                <option value="Japanese">Japanese/日语</option>
+                <option value="Korean">Korean/韩语</option>
+                <option value="Traditional Chinese">Traditional Chinese/繁体中文</option>
+                <option value="Cantonese">Cantonese/粤语</option><!--zh-HK-->
+                <option value="Literary Chinese">Classical Chinese/文言文</option>
+                <option value="Morse Code">Morse Code/莫斯密码</option>
+                <option value="Spanish">Spanish/西班牙语</option>
+                <option value="French">French/法语</option>
+                <!--Add more language options if needed -->
+            </select>
+            <label for="sourceText">Source Text:</label>
+            <textarea class="form-control" id="sourceText" rows="10" data-toggle="tooltip"  title="Input text."  oninput="adjustTextareaHeight(this)"></textarea>
+            <button class="btn btn-primary mt-3" data-toggle="tooltip"  title="Translate"  onclick="ChatGPT_Translate()">Translate</button>
+            <button class="btn btn-secondary mt-3" data-toggle="tooltip"  title="Clear both sides." onclick="clearFields()">Clear</button>
+        </div>
+        <div class="col-md-6">
+            <label for="translatedText">Translated Text:</label>
+            <textarea class="form-control" id="translatedText" data-toggle="tooltip"  title="Output text." rows="13"></textarea>
+            <button class="btn btn-secondary mt-3" onclick="copyTranslation()" data-toggle="popover" data-placement="bottom" data-content="Translated text copied!">Copy Translation</button>
+            <button class="btn btn-secondary mt-3" onclick="clearFields_right()" data-toggle="tooltip"  title="Clear the right side.">Clear</button>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="../assets/js/jquery-3.2.1.slim.min.js"></script>
+<script src="../assets/js/popper.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+
+<script>
+    function adjustTextareaHeight(textarea) {
+        textarea.style.height = ""; // Reset the height to auto
+        textarea.style.height = Math.max(textarea.scrollHeight, parseInt(textarea.getAttribute("rows"))) + "px";
+    }
+
+    function clearFields() {
+        document.getElementById("sourceText").value = "";
+        document.getElementById("translatedText").value = "";
+        adjustTextareaHeight(document.getElementById("sourceText"));
+        adjustTextareaHeight(document.getElementById("translatedText"));
+    }
+    function clearFields_right() {
+        document.getElementById("translatedText").value = "";
+        adjustTextareaHeight(document.getElementById("translatedText"));
+    }
+
+    function ChatGPT_Translate() {
+        var sourceLanguage = document.getElementById("sourceLanguage").value;
+        var sourceText = document.getElementById("sourceText").value;
+
+        //alert(sourceLanguage)
+
+        // Make a request to the ChatGPT API for translation
+
+        fetch('https://ai.fakeopen.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + 'pk-this-is-a-real-free-pool-token-for-everyone' // Replace with your actual API key
+            },
+            body: JSON.stringify({
+                "model": "gpt-3.5-turbo", // Replace with the desired GPT-3.5 model
+                "messages": [
+                    {"role": "system", "content": "You are a helpful assistant that translates text."},
+                    {"role": "user", "content": sourceText},
+                    {"role": "assistant", "content": "Please translate the above text to " + sourceLanguage + ". Each sentence should have a corresponding translation, no need to add anything. "}
+                ]
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                var translatedText = data.choices[0].message.content;
+                //translatedText = translatedText.slice(1, -1);//去除首尾的“”
+                document.getElementById("translatedText").value = translatedText;
+                adjustTextareaHeight(document.getElementById("translatedText"));
+            })
+            .catch(error => {
+                console.log('Error:', error);
+            });
+
+    }
+
+    function copyTranslation() {
+        var translatedText = document.getElementById("translatedText");
+        translatedText.select();
+        document.execCommand("copy");
+        $('[data-toggle="popover"]').popover('show'); // Show popover
+        setTimeout(function(){
+            $('[data-toggle="popover"]').popover('hide'); // Hide popover after 2 seconds
+        }, 2000);
+    }
+</script>
+</body>
+</html>
