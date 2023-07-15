@@ -37,7 +37,7 @@ Pandora项目其实也独立提供了[这种服务](https://gist.github.com/peng
 ## gpt_academic
 本人之前搭建专属自己的OpenAI API反向代理的教程[ChatGPT Wallfree](https://github.com/elphen-wang/chatgpt_wallfree)只实现了gpt_academic免科学上网功能，但仍需使用OpenAI原生的API key。这里还是以它为例，本次直接不用开发者自己搭建反向代理服务和OpenAI原生的API key，可以为一般的科研组省下一笔的不易报销的经费支出。
 
-开发者可使用本项目中[gpt_academic](https://github.com/elphen-wang/FreeAI/tree/main/gpt_academic)文件夹中文件替代官方的文件，也可在此基础上加入自己的设定（如gpt_academic账户密码等）。如此之后，安装官方的调试运行和部署指引，gpt_academic就可以不用科学上网又能免费使用gpt-3.5啦！
+开发者可使用本项目中[gpt_academic](https://github.com/elphen-wang/FreeAI/tree/main/gpt_academic)文件夹中文件替代官方的文件（主要是修改对access token的识别和获取），也可在此基础上加入自己的设定（如gpt_academic账户密码等）。如此之后，安装官方的调试运行和部署指引，gpt_academic就可以不用科学上网又能免费使用gpt-3.5啦！
 
 `tips：由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改。不然，用户的配置可能在某调试情况下不生效，这可能是gpt_academic的bug。`
 
