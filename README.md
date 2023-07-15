@@ -7,7 +7,7 @@ OpenAI should not be a closed AI.
 
 你是否苦恼没有免费的API Key来开发自己的ChatGPT工具？
 
-本项目综述Github众优秀开发者的努力，给出一个比较完美的解决方案，并持续向更好用更强大更便宜的AI开放努力。
+本项目综述Github众优秀开发者的努力，给出一个比较完美的解决方案，并持续向更好用、更强大、更便宜的AI开放努力。
 
 **鸣谢：**
 + [pengzhile/pandora](https://github.com/pengzhile/pandora)：让OpenAI GPT-3.5的API免费和免科学上网的关键技术。
@@ -32,4 +32,8 @@ Pandora项目还提供了两个免费的Pool Token:
 ## OpenAIAuth
 如果，你在使用Pandora提供的Pool Token还有隐私和安全的顾虑，也可以同时使用[OpenAIAuth](https://github.com/acheong08/OpenAIAuth)和`pandora-chatgpt`的python函数包来产生和定时更新专属自己Access token。
 
-Pandora项目也提供了[这种服务](https://gist.github.com/pengzhile/448bfcfd548b3ae4e665a84cc86c4694)。但是我实操后，还是觉得结合OpenAIAuth更好使一些，并把修改后的代码放进[get_freeai_api.py]()文件。
+Pandora项目其实也独立提供了[这种服务](https://gist.github.com/pengzhile/448bfcfd548b3ae4e665a84cc86c4694)。但是我实操后，还是觉得结合OpenAIAuth更好使一些，并把修改后的代码放进[get_freeai_api.py](https://github.com/elphen-wang/FreeAI/blob/main/get_freeai_api.py)文件。
+
+## gpt_academic
+本人之前的教程
+
