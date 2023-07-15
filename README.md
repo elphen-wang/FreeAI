@@ -27,5 +27,5 @@ Pandora项目还提供了两个免费的Pool API key:
 + `pk-this-is-a-real-free-api-key-pk-for-everyone` 一些120刀 Api Key组成的池子。`（我测试的时候已经没钱了，衰。）`
 经使用自己的账号生成的Pool API key和API Key测试，使用API进行的对话的记录，不会出现在该账户记录中。所以我自己使用的也是Pandora提供Pool API key，毕竟自己的池子不够大。
 
-基于此，我编写一个基于Pandora的简易翻译服务的网页，即文件``，测试效果还可以（本人十分中意ChatGPT的翻译效果）。
+基于此，我编写一个基于Pandora的简易翻译服务的网页，即文件`[Translate.html]()`，测试效果还可以（本人十分中意ChatGPT的翻译效果）。
 
