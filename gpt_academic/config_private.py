@@ -8,14 +8,16 @@
 """
 
 # [step 1]>> API_KEY = "sk-123456789xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx123456789"。极少数情况下，还需要填写组织（格式如org-123456789abcdefghijklmno的），请向下翻，找 API_ORG 设置项
-#API_KEYAPI_KEY = "pk-this-is-a-real-free-pool-token-for-everyone"    # 可同时填写多个API-KEY，用英文逗号分割，例如API_KEY = "sk-openaikey1,sk-openaikey2,fkxxxx-api2dkey3,azure-apikey4"
+API_KEYAPI_KEY = "pk-this-is-a-real-free-pool-token-for-everyone"    # 可同时填写多个API-KEY，用英文逗号分割，例如API_KEY = "sk-openaikey1,sk-openaikey2,fkxxxx-api2dkey3,azure-apikey4"
 
+''' #和上面的API_KEYAPI_KEY可以二选一，这段代码是配合用自己的OpenAI账户密码二设定。
 from os import path
 current_dir = path.dirname(path.abspath(__file__))
 share_tokens_file = path.join(current_dir, 'share_tokens.txt')
 with open(share_tokens_file, 'r', encoding='utf-8') as f:
         free_apis= f.read().split('\n')
 API_KEYAPI_KEY=','.join(filter(None,free_apis))
+'''
 
 
 # [step 2]>> 改为True应用代理，如果直接在海外服务器部署，此处不修改
