@@ -27,6 +27,7 @@ Pandora项目最难能可贵的是提供了可将用户的Cookie转化为形式�
 Pandora项目还提供了两个免费的Pool Token:
 + `pk-this-is-a-real-free-pool-token-for-everyone` 很多 Share Token 组成的池子。
 + `pk-this-is-a-real-free-api-key-pk-for-everyone` 一些120刀 Api Key组成的池子。`（我测试的时候已经没钱了，衰。）`
+
 经使用自己的账号生成的Share Token和Pool Token进行测试，使用Access Token进行的对话的记录，不会出现在该账户记录中。所以我自己使用的也是Pandora提供Pool Token，毕竟自己的池子不够大，而且因为自己的用户cookie的生命周期只有14天，时常更新Access Token也很烦。
 
 本人十分中意ChatGPT的翻译效果，所以编写一个基于Pandora的简易翻译服务的网页，即文件[Translate.html](https://github.com/elphen-wang/FreeAI/blob/main/Translate.html)，测试效果表明还可以。
