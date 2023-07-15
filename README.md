@@ -7,7 +7,7 @@ OpenAI should not be a closed AI.
 
 你是否苦恼没有免费的API Key来开发自己的ChatGPT工具？
 
-本项目综述Github众优秀开发者的努力，给出一个比较完美的解决方案，并持续向更好用、更强大、更便宜的AI开放努力。
+本项目综述Github众优秀开发者的努力，给出一个比较完美的解决方案，并持续向更好用、更强大、更便宜的AI开放努力。**如果你喜欢本项目，请给一个免费的star，谢谢！**
 
 **鸣谢：**
 + [pengzhile/pandora](https://github.com/pengzhile/pandora)：让OpenAI GPT-3.5的API免费和免科学上网的关键技术。
@@ -27,10 +27,10 @@ Pandora项目还提供了两个免费的Pool Token:
 + `pk-this-is-a-real-free-api-key-pk-for-everyone` 一些120刀 Api Key组成的池子。`（我测试的时候已经没钱了，衰。）`
 经使用自己的账号生成的Share Token和Pool Token进行测试，使用Access Token进行的对话的记录，不会出现在该账户记录中。所以我自己使用的也是Pandora提供Pool Token，毕竟自己的池子不够大，而且因为自己的用户cookie的生命周期只有14天，时常更新Access Token也很烦。
 
-本人十分中意ChatGPT的翻译效果，所以编写一个基于Pandora的简易翻译服务的网页，即文件[Translate.html](https://github.com/elphen-wang/FreeAI/blob/main/Translate.html)进行测试，效果还可以。
+本人十分中意ChatGPT的翻译效果，所以编写一个基于Pandora的简易翻译服务的网页，即文件[Translate.html](https://github.com/elphen-wang/FreeAI/blob/main/Translate.html)，测试效果表明还可以。
 
 ## OpenAIAuth
-如果，你在使用Pandora提供的Pool Token还有隐私和安全的顾虑，也可以同时使用[OpenAIAuth](https://github.com/acheong08/OpenAIAuth)和`pandora-chatgpt`的python函数包来产生和定时更新专属自己Access token。
+现在，Pandora的讨论帖就有人在提Access token想保留问询记录的需求。如果，你在使用Pandora提供的Pool Token还有隐私和安全的顾虑，也可以同时使用[OpenAIAuth](https://github.com/acheong08/OpenAIAuth)和`pandora-chatgpt`的python函数包来产生和定时更新专属自己Access token。
 
 Pandora项目其实也独立提供了[这种服务](https://gist.github.com/pengzhile/448bfcfd548b3ae4e665a84cc86c4694)。但是我实操后，还是觉得结合OpenAIAuth更好使一些，并把修改后的代码放进[get_freeai_api.py](https://github.com/elphen-wang/FreeAI/blob/main/get_freeai_api.py)文件，生成的'share_tokens.txt'是Pool Token（如果有二个及以上的账户密码的话）和Share Token并在的。
 
