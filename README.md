@@ -35,5 +35,7 @@ Pandora项目还提供了两个免费的Pool Token:
 Pandora项目其实也独立提供了[这种服务](https://gist.github.com/pengzhile/448bfcfd548b3ae4e665a84cc86c4694)。但是我实操后，还是觉得结合OpenAIAuth更好使一些，并把修改后的代码放进[get_freeai_api.py](https://github.com/elphen-wang/FreeAI/blob/main/get_freeai_api.py)文件。
 
 ## gpt_academic
-本人之前的教程
+本人之前搭建专属自己的OpenAI API反向代理的教程[ChatGPT Wallfree](https://github.com/elphen-wang/chatgpt_wallfree)只实现了gpt_academic免科学上网功能，但仍需使用OpenAI原生的API key。这里还是以它为例，本次直接不用开发者自己搭建反向代理服务和OpenAI原生的API key，可以为一般的科研组省下一笔的不易报销的经费支出。
+
+开发者用本项目中
 
