@@ -46,8 +46,8 @@ Pandora项目其实也独立提供了[这种服务](https://gist.github.com/peng
 `tips：由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改。不然，用户的配置可能在某调试情况下不生效，这可能是gpt_academic的bug。`
 
 ## 后记
-+ 因为，Pandora目前本质上是将OpenAI原生的网页服务还原出来，所以目前还不能免费使用诸如ChatGPT-4等付费内容。不过，这将是本人和一众致力于使AI技术服务更广大群众的开发者今后努力的方向。
-+ 之前ChatGPT Wallfree教程中提及ZeroTier的内网穿透技术，实测不如[Frp](https://github.com/fatedier/frp)更适合中国宝宝的体质：更稳定、速度更快且第三方无需客户端。
++ 因为，Pandora目前本质上是将OpenAI原生的网页服务还原出来，所以目前还不能免费使用诸如ChatGPT-4等付费服务。不过，这将是本人和一众致力于使AI技术服务更广大群众的开发者今后努力的方向。
++ 之前ChatGPT Wallfree教程中提及ZeroTier的内网穿透技术，实测不如[Frp](https://github.com/fatedier/frp)更适合中国科研宝宝的体质：更稳定、速度更快且第三方无需客户端。
 
 ## Star历史
 
