@@ -44,18 +44,21 @@ Pandora项目其实也独立提供了[这种服务](https://gist.github.com/peng
 
 在使用自己的账户的access token的场景中，需要用户自己设定定时执行get_freeai_api.py的功能，如每天凌晨四点执行一次。这样可以克服OpenAI cookie只有14天生命周期引入的频繁手动更新access token的问题。
 
-`tips：由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改。不然，用户的配置可能在某调试情况下不生效，这可能是gpt_academic的bug。`
-
-## 后记
-+ 因为，Pandora目前本质上是将OpenAI原生的网页服务还原出来，所以目前还不能免费使用诸如ChatGPT-4等付费服务。不过，这将是本人和一众致力于使AI技术服务更广大群众的开发者今后努力的方向。
-+ 之前ChatGPT Wallfree教程中提及ZeroTier的内网穿透技术，实测不如[Frp](https://github.com/fatedier/frp)更适合中国科研宝宝的体质：更稳定、速度更快且第三方无需客户端。
-+ 要使用gpt_academic arxiv翻译功能，在docker模式下，需要进行以下编译：
+`tips`：
+   + 要使用gpt_academic arxiv翻译功能，在docker模式下，需要进行以下编译：
    ``` bash {.line-numbers}
    #编译 docker 镜像
    docker build -t gpt-academic-nolocal-latex -f docs/GithubAction+NoLocal+Latex .
    #端口可以自由更换，保持和config.py和config_private.py中设置的一样即可
    run -d -v /home/fuqingxu/arxiv_cache:/root/arxiv_cache --net=host -p 86:86 --restart=always --name gpt-academic gpt-academic-nolocal-latex
    ```
+
+   + 由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改（即改为一样）。不然，用户的配置可能在某调试情况下不生效，这可能是gpt_academic的bug。`
+
+## 后记
++ 因为，Pandora目前本质上是将OpenAI原生的网页服务还原出来，所以目前还不能免费使用诸如ChatGPT-4等付费服务。不过，这将是本人和一众致力于使AI技术服务更广大群众的开发者今后努力的方向。
++ 之前ChatGPT Wallfree教程中提及ZeroTier的内网穿透技术，实测不如[Frp](https://github.com/fatedier/frp)更适合中国科研宝宝的体质：更稳定、速度更快且第三方无需客户端。
+
 
 ## To-do List
 + [ ] 完善gpt_academic的arxiv翻译功能，因为我是一个科研民工...
