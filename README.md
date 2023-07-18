@@ -12,6 +12,9 @@
 
 本项目综述Github众优秀开发者的努力，给出一个比较完美的解决方案，并持续向更好用、更强大、更便宜的AI开放努力。**如果你喜欢本项目，请给一个免费的star，谢谢！**
 
+`写在前面（因为issues很多人没看到这句话而遇到缺少API keyd的报错）：`
+   + ***由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改（即改的和config_private.py一模一样）。不然，用户的配置可能在某些调试情况下不生效，这可能是gpt_academic的bug。***
+
 **鸣谢：**
 + [pengzhile/pandora](https://github.com/pengzhile/pandora)：让OpenAI GPT-3.5的API免费和免科学上网的关键技术。
 + [acheong08/OpenAIAuth](https://github.com/acheong08/OpenAIAuth)：免科学上网获取自己OpenAI账户的Cookie。
@@ -54,7 +57,7 @@ Pandora项目其实也独立提供了[这种服务](https://gist.github.com/peng
    run -d -v /home/fuqingxu/arxiv_cache:/root/arxiv_cache --net=host -p 86:86 --restart=always --name gpt-academic gpt-academic-nolocal-latex
    ```
 
-   + 由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改（即改为一样）。不然，用户的配置可能在某调试情况下不生效，这可能是gpt_academic的bug。`
+   + ***由于gpt_academic设定用户参数配置的读取优先级: 环境变量 > config_private.py > config.py，所以调试中，最好config.py文件也做对应的修改（即改为一样）。不然，用户的配置可能在某些调试情况下不生效，这可能是gpt_academic的bug。***
 
 ## 后记
 + 因为，Pandora目前本质上是将OpenAI原生的网页服务还原出来，所以目前还不能免费使用诸如ChatGPT-4等付费服务。不过，这将是本人和一众致力于使AI技术服务更广大群众的开发者今后努力的方向。
