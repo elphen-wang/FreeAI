@@ -548,8 +548,8 @@ def is_api2d_key(key):
     return bool(API_MATCH_API2D)
     
 def is_freeai_api_key(key):#new add
-    API_MATCH_FREEAI0 = re.match(r"pk-[a-zA-Z0-9-]{43}$", key)
-    API_MATCH_FREEAI1 = re.match(r"fk-[a-zA-Z0-9-]{43}$", key)
+    API_MATCH_FREEAI0 = re.match(r"pk-[a-zA-Z0-9-_]{43}$", key)
+    API_MATCH_FREEAI1 = re.match(r"fk-[a-zA-Z0-9-_]{43}$", key)
     return bool(API_MATCH_FREEAI0) or bool(API_MATCH_FREEAI1)
 
 def is_any_api_key(key):
