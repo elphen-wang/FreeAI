@@ -28,7 +28,7 @@ def run():
         }
         token_keys.append(token_info)
         try:
-            auth = Auth0(email=username, password=password)
+            auth = Auth0(email_address=username, password=password)
             token_info['token'] = auth.get_access_token()
             #print('Login success: {}, {}'.format(username, progress))
         except Exception as e:
