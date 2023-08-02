@@ -66,7 +66,7 @@ Pandora项目还提供了两个免费的Pool Token:
 import requests,json
 response = requests.get("https://api.elphen.site/api?mode=default_my_poolkey")
 if response.status_code == 200:
-    FreeAI__Pool_Token=response.json()
+    FreeAI_Pool_Token=response.json()
 ```
 
  大家也可以通过Pandora项目提供的API，制作专属自己的Pandora Token：
