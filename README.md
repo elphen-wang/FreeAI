@@ -134,7 +134,7 @@ if resp2.status_code == 200:
 + 之前ChatGPT Wallfree教程中提及ZeroTier的内网穿透技术，实测不如[Frp](https://github.com/fatedier/frp)更适合中国科研宝宝的体质：更稳定、速度更快且第三方无需客户端。
 
 ## To-do List
-+ [ ] 因为我目前是一名科研工作人员，未来将优先投入有限精力开发与arxiv相关的功能，集成我能集成的服务。
++ [ ] 因为我目前是一名科研工作人员，未来将优先投入有限精力开发与arxiv相关的功能，集成我能且想要集成的服务。
 
 ## Star历史
 
