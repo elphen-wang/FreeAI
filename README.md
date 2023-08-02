@@ -58,7 +58,7 @@ Pandora项目还提供了两个免费的Pool Token:
 
 大家在使用这个链接时，**请注意以下几点**：
 + 这个链接提供的FreeAI Pool Token是**每天凌晨4点10分定时更新**的，注意它的内容**并不长久固定**，目前暂定它的生命周期为一天，所以大家**一天取一次即可**；
-+ 这个池子挂靠的服务器是轻量云服务器，**请大家轻虐，不要频繁访问**。
++ 这个池子挂靠的服务器是我的轻量云服务器，**请大家轻虐，不要频繁访问**。
 + 这个FreeAI Pool Token是由10个OpenAI账号组成的。池子虽不大，但应该够用。将来会继续扩展这个池子。
 + python 获取这个FreeAI Pool Token代码如下:
   
@@ -101,6 +101,11 @@ if resp2.status_code == 200:
 本教程的[get_freeai_api_v2.py](get_freeai_api_v2.py)即是一个获取Pandora （Share/Pool）Token的完整演示程序。
 
 **强烈建议大家使用自己的Pandora Token。并且，请大家优化代码，不要频繁发起请求，让提供服务的服务器（个人开发者的服务器性能一般不高）承载极限压力，最终反噬自己的请求响应缓慢。**
+
+**不建议用的小工具（以后可能会去掉）：**
++ **注意：以下方式会在本人的轻量云服务器上留下计算结果**（主要是为了减少频繁计算导致服务器响应缓慢。**介意的话，勿用！**）：
++ `https://api.elphen.site/api?username=a&password=b`可以获取OpenAI用户a密码为b构成的Pandora Share Token;
++ `https://api.elphen.site/api?username=a&password=b&username=c&password=d`可以获取OpenAI用户a和c、密码为b和d构成的Pandora Pool Token;
 
 ## gpt_academic
 本人之前搭建专属自己的OpenAI API反向代理的教程[ChatGPT Wallfree](https://github.com/elphen-wang/chatgpt_wallfree)只实现了gpt_academic免科学上网功能，但仍需使用OpenAI原生的API key。这里还是以它为例，本次直接不用开发者自己搭建反向代理服务和OpenAI原生的API key，可以为一般的科研组省下一笔的不易报销的经费支出。
