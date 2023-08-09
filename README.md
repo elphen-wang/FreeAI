@@ -1,5 +1,5 @@
 
-# <img src="https://elphen.site/ai/assets/img/freeai_brand_logo_3.png" alt="图片描述" style="width: 120px;height: auto;"> | FreeAI
+# <img src="http://www.sysuhep.space/ai/assets/img/freeai_brand_logo_3.png" alt="图片描述" style="width: 120px;height: auto;"> | FreeAI
 
 **OpenAI should not be a closed AI.**
 
