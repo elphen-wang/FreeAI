@@ -102,11 +102,6 @@ if resp2.status_code == 200:
 
 **强烈建议大家使用自己的Pandora Token。并且，请大家优化代码，不要频繁发起请求，让提供服务的服务器（个人开发者的服务器性能一般不高）承载极限压力，最终反噬自己的请求响应缓慢。**
 
-**不建议用的小工具（以后可能会去掉）：**
-+ **注意：以下方式会在本人的轻量云服务器上留下计算结果**（主要是为了减少频繁计算导致服务器响应缓慢。**介意的话，勿用！**）：
-+ `https://api.elphen.site/api?username=a&password=b`可以获取OpenAI用户a密码为b构成的Pandora Share Token;
-+ `https://api.elphen.site/api?username=a&password=b&username=c&password=d`可以获取OpenAI用户a和c、密码为b和d构成的Pandora Pool Token;
-
 ## gpt_academic
 本人之前搭建专属自己的OpenAI API反向代理的教程[ChatGPT Wallfree](https://github.com/elphen-wang/chatgpt_wallfree)只实现了gpt_academic免科学上网功能，但仍需使用OpenAI原生的API key。这里还是以它为例，本次直接不用开发者自己搭建反向代理服务和OpenAI原生的API key，可以为一般的科研组省下一笔的不易报销的经费支出。
 
