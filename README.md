@@ -27,7 +27,7 @@
 #### **2023年9月22日更新要点：**
 + FreeAI提供的池子更新频率更改为每4小时一次，以降低组成池子的账户的Cookie的失效的概率；
 + 根据gpt_academic (vension: 3.53)更新文件，更新的区域都写了“FreeAI更新”，大家可自行搜索关键词和对照学习。其实更改的部分不是很多，学习成本低；
-+ 建议使用gpt_academic (vension: 3.45)升级gpt_academic (vension: 3.53)的用户，运行`python3 -m pip install -r requirements.txt`更新依赖。
++ 建议使用gpt_academic (vension: 3.45)升级到gpt_academic (vension: 3.53)的用户，运行`python3 -m pip install -r requirements.txt`更新依赖。
 
 ---
 
