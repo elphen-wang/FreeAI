@@ -7,10 +7,10 @@
     Configuration reading priority: environment variable > config_private.py > config.py
 """
 
-# [step 1]>> API_KEY = "sk-123456789xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx123456789"。极少数情况下，还需要填写组织（格式如org-123456789abcdefghijklmno的），请向下翻，找 API_ORG 设置项
-API_KEY = "此处填API密钥"    # 可同时填写多个API-KEY，用英文逗号分割，例如API_KEY = "sk-openaikey1,sk-openaikey2,fkxxxx-api2dkey3,azure-apikey4"
+# [step 1]>> API_KEY = 'pk-jvDh20uTsC02w50uOESZop_PP0BgxwnBV31jTgA7LOY'。极少数情况下，还需要填写组织（格式如org-123456789abcdefghijklmno的），请向下翻，找 API_ORG 设置项
+API_KEY = "此处填API密钥"    # 可同时填写多个API-KEY，用英文逗号分割，例如API_KEY = 'pk-jvDh20uTsC02w50uOESZop_PP0BgxwnBV31jTgA7LOY'
 
-####################FreeAI更改的部分：定时更新API_KEY的部分####################
+####################定时更新API_KEY的部分####################
 import requests
 from apscheduler.schedulers.background import BackgroundScheduler
 ELPHEN_URL="https://api.elphen.site/api?mode=default_my_poolkey"
@@ -32,7 +32,7 @@ scheduler.start()
 #print(API_KEY)
 ###########################################################
 
-# [step 2]>> 改为True应用代理，如果直接在海外服务器部署，此处不修改；如果使用本地或无地域限制的大模型时，此处也不需要修改
+# [step 2]>> 改为True应用代理，如果直接在海外服务器部署，此处不修改
 USE_PROXY = False
 if USE_PROXY:
     """
@@ -56,22 +56,15 @@ else:
 # 重新URL重新定向，实现更换API_URL的作用（高危设置! 常规情况下不要修改! 通过修改此设置，您将把您的API-KEY和对话隐私完全暴露给您设定的中间人！）
 # 格式: API_URL_REDIRECT = {"https://api.openai.com/v1/chat/completions": "在这里填写重定向的api.openai.com的URL"} 
 # 举例: API_URL_REDIRECT = {"https://api.openai.com/v1/chat/completions": "https://reverse-proxy-url/v1/chat/completions"}
-
-############FreeAI更改的部分#################
 API_URL_REDIRECT = {"https://api.openai.com/v1/chat/completions":"https://ai.fakeopen.com/v1/chat/completions"}
-###########################################
+
 
 # 多线程函数插件中，默认允许多少路线程同时访问OpenAI。Free trial users的限制是每分钟3次，Pay-as-you-go users的限制是每分钟3500次
 # 一言以蔽之：免费（5刀）用户填3，OpenAI绑了信用卡的用户可以填 16 或者更高。提高限制请查询：https://platform.openai.com/docs/guides/rate-limits/overview
 DEFAULT_WORKER_NUM = 3
 
 
-# 色彩主题, 可选 ["Default", "Chuanhu-Small-and-Beautiful", "High-Contrast"]
-# 更多主题, 请查阅Gradio主题商店: https://huggingface.co/spaces/gradio/theme-gallery 可选 ["Gstaff/Xkcd", "NoCrypt/Miku", ...]
-THEME = "Default"
-AVAIL_THEMES = ["Default", "Chuanhu-Small-and-Beautiful", "High-Contrast", "Gstaff/Xkcd", "NoCrypt/Miku"]
-
-# 对话窗的高度 （仅在LAYOUT="TOP-DOWN"时生效）
+# 对话窗的高度
 CHATBOT_HEIGHT = 1115
 
 
@@ -89,34 +82,21 @@ TIMEOUT_SECONDS = 30
 
 
 # 网页的端口, -1代表随机端口
-############FreeAI更改的部分#################
-WEB_PORT = 8661
-############################################
+WEB_PORT = 86
+
 
 # 如果OpenAI不响应（网络卡顿、代理失败、KEY失效），重试的次数限制
 MAX_RETRY = 2
 
 
-# 插件分类默认选项
-DEFAULT_FN_GROUPS = ['对话', '编程', '学术']
-
-
 # 模型选择是 (注意: LLM_MODEL是默认选中的模型, 它*必须*被包含在AVAIL_LLM_MODELS列表中 )
 LLM_MODEL = "gpt-3.5-turbo" # 可选 ↓↓↓
-AVAIL_LLM_MODELS = ["gpt-3.5-turbo-16k", "gpt-3.5-turbo", "azure-gpt-3.5", "api2d-gpt-3.5-turbo", 
-                    "gpt-4", "api2d-gpt-4", "chatglm", "moss", "newbing", "stack-claude"]
-# P.S. 其他可用的模型还包括 ["qianfan", "llama2", "qwen", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-16k-0613", 
-# "spark", "sparkv2", "chatglm_onnx", "claude-1-100k", "claude-2", "internlm", "jittorllms_pangualpha", "jittorllms_llama"]
+AVAIL_LLM_MODELS = ["gpt-3.5-turbo-16k", "gpt-3.5-turbo", "azure-gpt-3.5", "api2d-gpt-3.5-turbo", "gpt-4", "api2d-gpt-4", "chatglm", "moss", "newbing", "stack-claude"]
+# P.S. 其他可用的模型还包括 ["gpt-3.5-turbo-0613", "gpt-3.5-turbo-16k-0613", "claude-1-100k", "claude-2", "internlm", "jittorllms_rwkv", "jittorllms_pangualpha", "jittorllms_llama"]
 
 
-# 百度千帆（LLM_MODEL="qianfan"）
-BAIDU_CLOUD_API_KEY = ''
-BAIDU_CLOUD_SECRET_KEY = ''
-BAIDU_CLOUD_QIANFAN_MODEL = 'ERNIE-Bot'    # 可选 "ERNIE-Bot"(文心一言), "ERNIE-Bot-turbo", "BLOOMZ-7B", "Llama-2-70B-Chat", "Llama-2-13B-Chat", "Llama-2-7B-Chat"
-
-
-# 如果使用ChatGLM2微调模型，请把 LLM_MODEL="chatglmft"，并在此处指定模型路径
-CHATGLM_PTUNING_CHECKPOINT = "" # 例如"/home/hmp/ChatGLM2-6B/ptuning/output/6b-pt-128-1e-2/checkpoint-100"
+# ChatGLM(2) Finetune Model Path （如果使用ChatGLM2微调模型，需要把"chatglmft"加入AVAIL_LLM_MODELS中）
+ChatGLM_PTUNING_CHECKPOINT = "" # 例如"/home/hmp/ChatGLM2-6B/ptuning/output/6b-pt-128-1e-2/checkpoint-100"
 
 
 # 本地LLM模型如ChatGLM的执行方式 CPU/GPU
@@ -130,6 +110,10 @@ CONCURRENT_COUNT = 100
 
 # 是否在提交时自动清空输入框
 AUTO_CLEAR_TXT = False
+
+
+# 色彩主体，可选 ["Default", "Chuanhu-Small-and-Beautiful"]
+THEME = "Default"
 
 
 # 加一个live2d装饰
@@ -156,7 +140,7 @@ SLACK_CLAUDE_USER_TOKEN = ''
 
 # 如果需要使用AZURE 详情请见额外文档 docs\use_azure.md
 AZURE_ENDPOINT = "https://你亲手写的api名称.openai.azure.com/"
-AZURE_API_KEY = "填入azure openai api的密钥"    # 建议直接在API_KEY处填写，该选项即将被弃用
+AZURE_API_KEY = 'pk-jvDh20uTsC02w50uOESZop_PP0BgxwnBV31jTgA7LOY'    # 建议直接在API_KEY处填写，该选项即将被弃用
 AZURE_ENGINE = "填入你亲手写的部署名"            # 读 docs\use_azure.md
 
 
@@ -174,101 +158,9 @@ ALIYUN_APPKEY=""    # 例如 RoPlZrM88DnAFkZK
 ALIYUN_ACCESSKEY="" # （无需填写）
 ALIYUN_SECRET=""    # （无需填写）
 
-
-# 接入讯飞星火大模型 https://console.xfyun.cn/services/iat
-XFYUN_APPID = "00000000"
-XFYUN_API_SECRET = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-XFYUN_API_KEY = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-
-
 # Claude API KEY
-ANTHROPIC_API_KEY = ""
+ANTHROPIC_API_KEY = 'pk-jvDh20uTsC02w50uOESZop_PP0BgxwnBV31jTgA7LOY'
 
 
 # 自定义API KEY格式
 CUSTOM_API_KEY_PATTERN = ""
-
-
-# HUGGINGFACE的TOKEN，下载LLAMA时起作用 https://huggingface.co/docs/hub/security-tokens
-HUGGINGFACE_ACCESS_TOKEN = "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"
-
-
-# GROBID服务器地址（填写多个可以均衡负载），用于高质量地读取PDF文档
-# 获取方法：复制以下空间https://huggingface.co/spaces/qingxu98/grobid，设为public，然后GROBID_URL = "https://(你的hf用户名如qingxu98)-(你的填写的空间名如grobid).hf.space"
-GROBID_URLS = [
-    "https://qingxu98-grobid.hf.space","https://qingxu98-grobid2.hf.space","https://qingxu98-grobid3.hf.space",
-    "https://shaocongma-grobid.hf.space","https://FBR123-grobid.hf.space", "https://yeku-grobid.hf.space", 
-]
-
-
-# 是否允许通过自然语言描述修改本页的配置，该功能具有一定的危险性，默认关闭
-ALLOW_RESET_CONFIG = False
-# 临时的上传文件夹位置，请勿修改
-PATH_PRIVATE_UPLOAD = "private_upload"
-# 日志文件夹的位置，请勿修改
-PATH_LOGGING = "gpt_log"
-
-"""
-在线大模型配置关联关系示意图
-│
-├── "gpt-3.5-turbo" 等openai模型
-│   ├── API_KEY
-│   ├── CUSTOM_API_KEY_PATTERN（不常用）
-│   ├── API_ORG（不常用）
-│   └── API_URL_REDIRECT（不常用）
-│
-├── "azure-gpt-3.5" 等azure模型
-│   ├── API_KEY
-│   ├── AZURE_ENDPOINT
-│   ├── AZURE_API_KEY
-│   ├── AZURE_ENGINE
-│   └── API_URL_REDIRECT
-│
-├── "spark" 星火认知大模型 spark & sparkv2
-│   ├── XFYUN_APPID
-│   ├── XFYUN_API_SECRET
-│   └── XFYUN_API_KEY
-│
-├── "claude-1-100k" 等claude模型
-│   └── ANTHROPIC_API_KEY
-│
-├── "stack-claude"
-│   ├── SLACK_CLAUDE_BOT_ID
-│   └── SLACK_CLAUDE_USER_TOKEN
-│
-├── "qianfan" 百度千帆大模型库
-│   ├── BAIDU_CLOUD_QIANFAN_MODEL
-│   ├── BAIDU_CLOUD_API_KEY
-│   └── BAIDU_CLOUD_SECRET_KEY
-│
-├── "newbing" Newbing接口不再稳定，不推荐使用
-    ├── NEWBING_STYLE
-    └── NEWBING_COOKIES
-
-    
-用户图形界面布局依赖关系示意图
-│
-├── CHATBOT_HEIGHT 对话窗的高度
-├── CODE_HIGHLIGHT 代码高亮
-├── LAYOUT 窗口布局
-├── DARK_MODE 暗色模式 / 亮色模式
-├── DEFAULT_FN_GROUPS 插件分类默认选项
-├── THEME 色彩主题
-├── AUTO_CLEAR_TXT 是否在提交时自动清空输入框
-├── ADD_WAIFU 加一个live2d装饰
-├── ALLOW_RESET_CONFIG 是否允许通过自然语言描述修改本页的配置，该功能具有一定的危险性
-
-
-插件在线服务配置依赖关系示意图
-│
-├── 语音功能
-│   ├── ENABLE_AUDIO
-│   ├── ALIYUN_TOKEN
-│   ├── ALIYUN_APPKEY
-│   ├── ALIYUN_ACCESSKEY
-│   └── ALIYUN_SECRET
-│
-├── PDF文档精准解析
-│   └── GROBID_URLS
-
-"""
